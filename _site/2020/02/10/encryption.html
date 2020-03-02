@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Introduction to encryption | I’m thinking of a name, I promise</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Introduction to encryption" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this article, we will explore the 3 main types of encryption and then look at some examples of them. The concepts will underpin everything you do online, so it’s vital we understand them." />
+<meta property="og:description" content="In this article, we will explore the 3 main types of encryption and then look at some examples of them. The concepts will underpin everything you do online, so it’s vital we understand them." />
+<link rel="canonical" href="http://localhost:4000/2020/02/10/encryption.html" />
+<meta property="og:url" content="http://localhost:4000/2020/02/10/encryption.html" />
+<meta property="og:site_name" content="I’m thinking of a name, I promise" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-10T00:00:00+00:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/2020/02/10/encryption.html","headline":"Introduction to encryption","dateModified":"2020-02-10T00:00:00+00:00","datePublished":"2020-02-10T00:00:00+00:00","description":"In this article, we will explore the 3 main types of encryption and then look at some examples of them. The concepts will underpin everything you do online, so it’s vital we understand them.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/02/10/encryption.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="I'm thinking of a name, I promise" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">I&#39;m thinking of a name, I promise</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Introduction to encryption</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-02-10T00:00:00+00:00" itemprop="datePublished">Feb 10, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In this article, we will explore the 3 main types of encryption and then look at some examples of them. The concepts will underpin everything you do online, so it’s vital we understand them.</p>
+
+<p>The first, and oldest, form of cryptography is symmetric cryptography. In this, only one key is used. This means you need to know the same secret that was used to encrypt the message in order to decipher it.</p>
+
+<p><img src="/assets/symmetric.png" alt="Symmetric encryption" /></p>
+
+<p>There are many examples of symmetric algorithms, from the early Caesar ciphers to the modern-day AES algorithm. AES is used widely today, including being used by the US government. We will now introduce a cryptographer’s best friend, <a href="https://gchq.github.io/CyberChef/">CyberChef</a>. This is a versatile web tool which can be used to do a vast number of cryptography activities. You can make ‘recipes’ of cryptography algorithms which you can put values into. Now to try encrypting something using AES.</p>
+
+<p><img src="/assets/cyberchef_aes.png" alt="CyberChef example" /></p>
+
+<p>Here you can see that we have successfully encrypted a message, and now it looks nothing like what it did originally. To explain some of the options; they key is the secret that is needed to decrypt the message, the IV (Initialisation Vector) randomizes the output so you can use the same key and message but with different outputs. Then AES has different modes which encrypt the message in different ways, which I’d recommend researching if you are interested.</p>
+
+<p>The next type of encryption is asymmetric encryption. This instead involves two keys, one used to encrypt a message and one to decrypt it</p>
+
+<p><img src="/assets/asymmetric.png" alt="Asymmetric encryption" /></p>
+
+<p>This is sometimes called public key cryptography. So, say Alice wants to send Bob a message that no one else can read. If we used symmetric cryptography, they’d have to find a way to share the key without anyone seeing it which is rather challenging. Asymmetric encryption fixes this key exchange issues. So, everyone has a ‘keypair’, a public key and a private key. These keys are related so if one is used to encrypt something, the other can decrypt it. So, in our scenario. Bob posts his public keys publicly. Therefore, anyone can encrypt a message with Bob’s public key. But the important thing is that only Bob has the private key, so only he can read these messages. And that’s asymmetric cryptography in a nutshell! A common example of this sort of cryptography is RSA. This algorithm is used widely today, and whilst I won’t discuss the details here, I’d highly suggest reading up on it <a href="https://simple.wikipedia.org/wiki/RSA_algorithm">here</a>.</p>
+
+<p>The 3rd type is hashing. However, I may have told a lie, as hashing isn’t exactly encryption. Encryption is a two-way thing. If you encrypt something, given the correct information (ie the key), you can decrypt it again. Hashing is a one-way function. You give this function an input, and it returns a fixed length output. Hashing has two common uses: verifying file integrity and protecting passwords. As a hash changes depending on the input, you can use this to compare two files and see if they are the same or not. Then they can protect passwords as they cannot be reversed, so when you enter a password, your input is hashed and compared to the existing hash.</p>
+
+<p>The final thing to talk about is how to ‘break’ an encryption algorithm. One of the most important things is Kerchoff’s principle. It states that any secure algorithm must be open to be viewed by all others. The reasoning is that any algorithm that relies on secrecy is flawed as it’s very possible someone will get hold of it. But if it remains secure even after people have audited it, it must be secure. To backtrack, secure just means that you can’t get the plaintext from the ciphertext. But when the algorithm is secure, it doesn’t mean you can relax. Attackers can use “side channel attacks”. So instead of attacking the algorithm, you attack how it’s implemented. This often attacks hardware implementations which inadvertently leak information.</p>
+
+<p>Hopefully you’ve learnt something from this! This was a quick tour but I would highly recommend researching anything here that sounds interesting in more depth.</p>
+
+
+  </div><a class="u-url" href="/2020/02/10/encryption.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">I&#39;m thinking of a name, I promise</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">I&#39;m thinking of a name, I promise</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Hey welcome to my site! Not a lot is here at the moment, but I am adding stuff as I go along!</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
