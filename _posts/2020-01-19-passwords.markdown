@@ -25,7 +25,7 @@ Now for a quick taster of what hashing is. It’s a form of cryptography where i
 
 This is probably as a good a time as any to introduce the infamous XKCD comic: 
 
-![Password Strength XKCS](/assets/password_strength.png)
+![Password Strength XKCD](/assets/password_strength.png)
 
 This is true because the only way to ‘crack’ a hashed password is to brute force it. This is achieved either by using a database of common passwords and their hashes or by just simply hashing all possible combinations until you find a match. Every character you add to a password exponentially increases the time required to crack it, which is why long passwords are considered good advice. Another layer of security can be added to hashed passwords by ‘salting’ them, something that will be covered elsewhere. 
 
@@ -43,10 +43,10 @@ Extra resources:
 
  
 
-https://random-ize.com/how-long-to-hack-pass/ 
+[Password strength checker](https://random-ize.com/how-long-to-hack-pass/) 
 
-https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt 
+[Download link for the famous rockyou.txt, commonly used for trying to brute force passwords](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) 
 
-Download link for the famous rockyou.txt, commonly used for trying to brute force passwords 
+
 
  
