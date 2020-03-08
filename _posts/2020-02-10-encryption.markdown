@@ -7,7 +7,7 @@ In this article, we will explore the 3 main types of encryption and then look at
 
 The first, and oldest, form of cryptography is symmetric cryptography. In this, only one key is used. This means you need to know the same secret that was used to encrypt the message in order to decipher it.  
 
-<img src="https://ssafuze.github.io/EPQ-site/assets/symmetric.png>
+<img src="https://ssafuze.github.io/EPQ-site/assets/symmetric.png">
 
 There are many examples of symmetric algorithms, from the early Caesar ciphers to the modern-day AES algorithm. AES is used widely today, including being used by the US government. We will now introduce a cryptographer’s best friend, [CyberChef](https://gchq.github.io/CyberChef/). This is a versatile web tool which can be used to do a vast number of cryptography activities. You can make ‘recipes’ of cryptography algorithms which you can put values into. Now to try encrypting something using AES.  
 
