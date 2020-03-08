@@ -7,17 +7,17 @@ In this article, we will explore the 3 main types of encryption and then look at
 
 The first, and oldest, form of cryptography is symmetric cryptography. In this, only one key is used. This means you need to know the same secret that was used to encrypt the message in order to decipher it.  
 
-![Symmetric encryption](/assets/symmetric.png)
+<img src="https://ssafuze.github.io/EPQ-site/assets/symmetric.png>
 
 There are many examples of symmetric algorithms, from the early Caesar ciphers to the modern-day AES algorithm. AES is used widely today, including being used by the US government. We will now introduce a cryptographer’s best friend, [CyberChef](https://gchq.github.io/CyberChef/). This is a versatile web tool which can be used to do a vast number of cryptography activities. You can make ‘recipes’ of cryptography algorithms which you can put values into. Now to try encrypting something using AES.  
 
-![CyberChef example](/assets/cyberchef_aes.png)
+<img src="https://ssafuze.github.io/EPQ-site/assets/cyberchef_aes.png">
 
 Here you can see that we have successfully encrypted a message, and now it looks nothing like what it did originally. To explain some of the options; they key is the secret that is needed to decrypt the message, the IV (Initialisation Vector) randomizes the output so you can use the same key and message but with different outputs. Then AES has different modes which encrypt the message in different ways, which I’d recommend researching if you are interested. 
 
 The next type of encryption is asymmetric encryption. This instead involves two keys, one used to encrypt a message and one to decrypt it
 
-![Asymmetric encryption](/assets/asymmetric.png)
+<img src="https://ssafuze.github.io/EPQ-site/assets/asymmetric.png"> 
 
 This is sometimes called public key cryptography. So, say Alice wants to send Bob a message that no one else can read. If we used symmetric cryptography, they’d have to find a way to share the key without anyone seeing it which is rather challenging. Asymmetric encryption fixes this key exchange issues. So, everyone has a ‘keypair’, a public key and a private key. These keys are related so if one is used to encrypt something, the other can decrypt it. So, in our scenario. Bob posts his public keys publicly. Therefore, anyone can encrypt a message with Bob’s public key. But the important thing is that only Bob has the private key, so only he can read these messages. And that’s asymmetric cryptography in a nutshell! A common example of this sort of cryptography is RSA. This algorithm is used widely today, and whilst I won’t discuss the details here, I’d highly suggest reading up on it [here](https://simple.wikipedia.org/wiki/RSA_algorithm).  
 
