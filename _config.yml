@@ -22,8 +22,8 @@ title: I'm thinking of a name, I promise
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Hey welcome to my site! Not a lot is here at the moment, but I am adding stuff as I go along!
-baseurl: /EPQ-site # the subpath of your site, e.g. /blog
-url: https://ssafuze.github.io/EPQ-site/ # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: # the subpath of your site, e.g. /blog
+url: https://cyberskills.ssafuze.com/ # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
