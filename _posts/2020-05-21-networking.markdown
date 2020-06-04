@@ -39,12 +39,12 @@ That was a quick tour of basic networking concepts, and hopefully you picked som
 
 Sources for further reading: 
 
-https://www.webopedia.com/TERM/L/local_area_network_LAN.html 
+[more info on LANs](https://www.webopedia.com/TERM/L/local_area_network_LAN.html) 
 
-https://standards.ieee.org/faqs/ 
+[some information on recognised standards](https://standards.ieee.org/faqs/) 
 
-https://erg.abdn.ac.uk/users/gorry/course/inet-pages/ 
+[some good pages on common networking protocols etc](https://erg.abdn.ac.uk/users/gorry/course/inet-pages/) 
 
-https://www.inetdaemon.com/ 
+[good collection of tutorials](https://www.inetdaemon.com/) 
 
-https://searchnetworking.techtarget.com/definition/UDP-User-Datagram-Protocol
+[info on UDP](https://searchnetworking.techtarget.com/definition/UDP-User-Datagram-Protocol)
