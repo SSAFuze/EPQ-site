@@ -11,7 +11,7 @@ But before we explore the big and scary world of the internet, let's talk about 
 
 But how do computers know who they are talking to? Firstly, we need to understand that computers on a network have a Network Interface Card (NIC). Every NIC has an address ‘burnt’ into it, which is unique to every NIC worldwide (theoretically – this may not be true but this only matters on a LAN so we don’t need to worry). This address is called the Media Access Control (MAC) address. Every computer has this on a Local Area Network, and it is used address data with, so it arrives at the correct place. A MAC address is 6 bytes long (12 hexadecimal digits) and will look something like 00:1B:44:11:3A:B7. Interestingly, you can also learn a bit about a computer from it’s MAC address; the first half represents the manufacturer of the NIC, then the second half is unique to every NIC made by that manufacturer. The diagram below shows this in detail: 
 
-<img src="https://ssafuze.github.io/EPQ-site/assets/OUI.png">
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/OUI.png"></div>
 
 So, we have addresses for computers on a LAN - great! But how do we know who has those addresses? This is where the Address Resolution Protocol (ARP) comes in. Computers will often only know the IP address (covered later in this article) of the computer it wants to communicate with and doesn’t know it’s MAC address. To solve this, the computer sends an ARP request as a broadcast on the network asking, “hey who has this IP address”. A broadcast means every computer on that network receives this message. When the computer which has that MAC address receives this message, it will respond with “hey that’s me, here’s my MAC address” - now communications can resume as normal. To prevent a request every time they want to send information, and to speed it up, computers have an ARP cache which stores MAC addresses which they have talked to recently. If you are on Windows computer and want to see this, you can type “arp -a” into a command prompt. However, as IP addresses can change on a network, the operating system regularly empties this cache, meaning ARP requests are often resent to get the MAC address again. 
 
@@ -31,7 +31,7 @@ Finally, we are going to look more in depth at two important protocols, TCP and 
 
 Let’s look at TCP. TCP is a “connection-oriented” protocol. This is because it checks to see whether data has arrived at its destination. It starts a conversation with a “3-way handshake” as shown below. Every time data is sent, an acknowledgement (ACK) is sent back. This allows the sender to be sure that the data hasn’t been lost in transit. The alternative is UDP, which does not perform the same checks. It is often referred to as a “fire and forget protocol”, as it doesn’t care whether the data gets there or not – therefore this is often used in movie streaming services as it doesn’t matter if you lose a few little bits of data and is faster than TCP as it doesn’t have any checks on whether data has arrived. 
 
-<img src="https://ssafuze.github.io/EPQ-site/assets/handshake.png">
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/handshake.png"></div>
 
 That was a quick tour of basic networking concepts, and hopefully you picked something up! Feel free to do further research on concepts here that you don’t understand or want to learn about (perhaps using the resources below). I hope you learnt something, and thanks for reading! 
 
