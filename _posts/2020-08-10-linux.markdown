@@ -31,7 +31,7 @@ This view seems a bit simple doesn’t it? What if we want more information, or 
 
 ls --help
 
-command to see all the options (image below). That’s quite a lot of options isn't it! Well you will probably never need most of them and you don’t even need to remember them all as you can just look them up with help commands. You can also view the help outputs for many inbuilt commands by running “man <command name>” which is why Linux geeks will often say to read the man pages.  
+command to see all the options (image below). That’s quite a lot of options isn't it! Well you will probably never need most of them and you don’t even need to remember them all as you can just look them up with help commands. You can also view the help outputs for many inbuilt commands by running “man &lt;command name&gt;” which is why Linux geeks will often say to read the man pages.  
 
 <div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux3.png"></div>
 
@@ -47,23 +47,23 @@ we get info on all the files! (the order of the options doesn’t matter, and yo
 
 So, we can now see files and folders, that’s great but we should start doing things with them. Let’s return to ~ (cd ~) and play with some new commands. Firstly, let's look at the echo command. According to the man page, it can be used to “display a line of text”. As seen, in the picture below, it does exactly what it says on the tin. It is also good practice to wrap strings with spaces in double quotes, as it could cause issues down the line otherwise. What this program is doing is taking what you enter into standard input (stdin – so what you type) and displaying it in standard output (stdout). There’s also a third type called standard error (stderr) but we don’t see that here. But we can make this more useful by “redirecting” this output into a file, using the symbol > (such as the image below). If the file you are redirecting to doesn’t exist, it will make it for you. If it does already exist, it will overwrite whatever it contains and replace that. In most situations, you’d use a text editor or some other program, but this can be useful and is a common trick used in Linux. But how do we now view this? We can use the cat command to view the contents of the file we made, simply by running 
 
-cat <filename>
+cat &lt;filename&gt;
 
 This command can also display the contents of several files at once. But for now, we have completed a simple task using several commands. You can see this in the image below.  
 
 <div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux6.png"></div>
 
-Just as a note, going back to when we used >, we pointed out that this would overwrite whatever was in that file. If we want to append new data instead of overwriting, we can use >>. This is quickly demonstrated in the below image. 
+Just as a note, going back to when we used >, we pointed out that this would overwrite whatever was in that file. If we want to append new data instead of overwriting, we can use \>\>. This is quickly demonstrated in the below image. 
 
 <div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux7.png"></div>
 
 So we’ve seen how to create basic files now, but what about folders? Time to introduce mkdir (make directory – directories are the same as folders). To create a new folder, simply run 
 
-mkdir <folder name>
+mkdir &lt;folder name&gt;
 
 We can then (assuming we are in ~) run
 
-cd ~/<folder name>
+cd ~/&lt;folder name&gt;
 
 to enter this new folder. We can then use previous techniques to create a file. But if we want to return to our home directory, instead of 
 
