@@ -1,0 +1,104 @@
+---
+layout: post
+title: "An introduction to the Linux operating system"
+---
+
+Linux is an open source operating system. This means that the code for it is open to anyone to view, copy and edit. This is different to operating systems (OSes) such as Windows, where the code is proprietary, so you cannot see or edit it. What this means for Linux is that it is free! It was created by a man named Linus Torvalds but now maintained by a wide community of people around the world. Whilst not as widely used as OSes such as Windows on desktop, surveys estimate one-third to two-thirds of all web servers run Linux. Another cool feature of Linux is that there are lots of different versions (flavours/distributions), as anyone can edit the code to customise it for their needs. There are distributions designed for hacking, scientific research and also many just for day-to-day use. But they all share key features, some of which we will look in this article. 
+
+Now to begin our Linux journey, we will meet our new best friend – the terminal. This is a command line interface where we can perform tasks without a GUI (graphical user interface). Other operating systems such as Windows also have a command line but that’s a topic for another article. This article isn’t going to cover how to setup Linux, there are plenty of other guides about this on the internet. We are going to assume you have Linux in front of you from now on. All the following screenshots are taken from a distribution named Debian, but you can use which ever one you want to (Debian or Ubuntu is usually a good choice for beginners). If you open a terminal, you should see something like this: 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux1.png"></div>
+
+The blinking cursor is where we will type commands. The word before the @ symbol is the username that you are currently logged in as. After the @, we see the name of the machine (or ’host‘) that you are working on. After the : is the current directory you are in. Unless you customise it, you will start in the ~ (home directory) when you open a terminal. We’ll cover what this means in a little bit. And finally, at the end we see a $. This just denotes the end of the prompt. If you logged in as root, you may see # instead.  We will cover what it means to be root later on. 
+
+So now, let's talk about the Linux file system. We see that we started in the directory called ~. This is our home directory. Every user has one. ~ is a shortcut for a longer file path, but it makes it easier for us to get home! If we run the command 
+
+pwd 
+
+whilst here, it will show us the full file path. Let’s explore the root directory. Confusingly, this is not the root user’s home directory but instead just the highest point of the file system (everything else is below it). This is why the root directory is simply /, which you will see at the beginning of all file paths. To change directory to /, we use the change directory command (cd) so you can run 
+
+cd /
+
+You will see the ~ change to a / in the prompt, showing us that we were successful. Now run the command
+
+ls 
+
+to list all folders and files in the current directory. This is what a standard root directory looks like, perhaps a few minor differences. In the image below, dark blue names are folders and light blue are files. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux2.png"></div>
+
+This view seems a bit simple doesn’t it? What if we want more information, or different functionality? This is where we use switches in a command. You will often see them in the format of “–h” or “--help”, with double dash usually for switches which are words. Almost every program will have one of the two switches I just used as an example (h or help), which will show you the options that program has. We can run the 
+
+ls --help
+
+command to see all the options (image below). That’s quite a lot of options isn't it! Well you will probably never need most of them and you don’t even need to remember them all as you can just look them up with help commands. You can also view the help outputs for many inbuilt commands by running “man <command name>” which is why Linux geeks will often say to read the man pages.  
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux3.png"></div>
+
+By reading the help info, we will see that the “-l” option will show us a longer format in the output. Let’s give this a try. Woah, that’s a lot more interesting! We don’t need to understand everything here (what it all means can easily be looked up), but we can see it gives us some useful information. The column on the far left shows us permissions. These can be used to work out if a user can read, write or execute a file. We also see information such as who owns the file, among other things. Let’s instead try another option with ls, this time “-R”. This will recursively list files, meaning we can see everything within the top folders we see now. As we are running it from /, it will show us every file we have permission to see! As a result, we see a lot of files... The command will take a little while to run. If you want to stop it sooner, you can use CTRL+C as a keyboard shortcut. This will stop whatever program is running at that moment in the terminal. Now to make commands even more useful, we can combine these options. If we run 
+
+ls -lR
+
+we get info on all the files! (the order of the options doesn’t matter, and you can do it separately like “ls -l –R)"
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux4.png"></div>
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux5.png"></div>
+
+So, we can now see files and folders, that’s great but we should start doing things with them. Let’s return to ~ (cd ~) and play with some new commands. Firstly, let's look at the echo command. According to the man page, it can be used to “display a line of text”. As seen, in the picture below, it does exactly what it says on the tin. It is also good practice to wrap strings with spaces in double quotes, as it could cause issues down the line otherwise. What this program is doing is taking what you enter into standard input (stdin – so what you type) and displaying it in standard output (stdout). There’s also a third type called standard error (stderr) but we don’t see that here. But we can make this more useful by “redirecting” this output into a file, using the symbol > (such as the image below). If the file you are redirecting to doesn’t exist, it will make it for you. If it does already exist, it will overwrite whatever it contains and replace that. In most situations, you’d use a text editor or some other program, but this can be useful and is a common trick used in Linux. But how do we now view this? We can use the cat command to view the contents of the file we made, simply by running 
+
+cat <filename>
+
+This command can also display the contents of several files at once. But for now, we have completed a simple task using several commands. You can see this in the image below.  
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux6.png"></div>
+
+Just as a note, going back to when we used >, we pointed out that this would overwrite whatever was in that file. If we want to append new data instead of overwriting, we can use >>. This is quickly demonstrated in the below image. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux7.png"></div>
+
+So we’ve seen how to create basic files now, but what about folders? Time to introduce mkdir (make directory – directories are the same as folders). To create a new folder, simply run 
+
+mkdir <folder name>
+
+We can then (assuming we are in ~) run
+
+cd ~/<folder name>
+
+to enter this new folder. We can then use previous techniques to create a file. But if we want to return to our home directory, instead of 
+
+cd ~ 
+
+we can run 
+
+cd .. 
+
+Here “..” represents the folder above us, so it will always take you one folder up. For obvious reasons, it will do nothing in / (you can’t go any higher). If we want to see what’s in our new folder, we can specify a folder with ls (see below). 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux8.png"></div>
+
+Now let’s say I now have several folders called folder1, folder 2, folder3 etc (shown below). I want to see what’s in each folder, but I’m lazy and don’t want to type out ls 6 times. So instead we can use a “wildcard”, in this case “\*”. This asterisk will return anything. This might be hard to understand, so let’s look at an example. If we used the pattern “folder\*”, it would look for anything starting with folder (anything can come after that), so this would find all our new folders. Using “*” would match everything! These concepts are demonstrated below. If you are still confused, the best solution is to experiment, making new patterns containing * and trying to predict what you will see. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux9.png"></div>
+
+Ok, so we have learnt about files and folders and interacting with them. Let’s now turn our attention to a new topic, users (that’s you!). Every user has different permissions and can access different files, depending on what the permissions of that file are. This is a very in-depth topic, which I would highly recommend researching. But we are going to talk about the one user every system will have – root. This account is the most powerful in Linux, it can do anything. It can do tasks such as delete the entire filesystem and change how the system is working at a low level, such as changing settings of network interfaces. For this reason, it is considered bad practice to be logged in as a root user. If you accidentally run a command that deletes all of your files (trust me, I’ve done this before) as a root user, Linux will let you. This is where our friend sudo comes in. This command lets you (if allowed) to run commands as another user (usually root). For you to be able to use sudo, you must be in the /etc/sudoers file. The following picture shows me trying to see the contents of a folder owned by the root user, which also doesn’t allow any other users to view. Note: when asking for a password, the terminal does not replace characters with an asterisk like most login prompts, it instead just doesn’t show what you are typing so don’t be alarmed if you don’t see anything. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux10.png"></div>
+
+We also need to discuss two important files: /etc/passwd and /etc/shadow. The former (/etc/passwd) stores the names of all accounts on the system. You can try reading it with the cat command, as it is readable by any user on the system (but not editable by all). You will see several entries end with “nologin”. This represents that you can’t actually log into those accounts, as they are just used by the system for various purposes. The second file (/etc/passwd) stores the encrypted passwords of these accounts. If you want to view this file, you will need to use sudo as only root can read this file. It is possible to attempt a password cracking attack using these two files but it is not guaranteed to be successful. The strongest defence against such an attack succeeding is using long passwords that are not commonly used (so not found in a wordlist). 
+
+So, we have explored a wide range of concepts and commands. But what if the system doesn’t have a command for our situation? It’s very possible that someone has written a command to do whatever it is, so let us introduce packages. A package is a collection of files, usually used for installing a command. Whilst it is possible to download and “compile” the files yourself, we often use what’s called a package manager. This example will use the apt package manager (found in most Debian distributions). Other package managers exist, and you may have to research how to use them if your distribution uses another one. This brief example will only scratch the surface (by installing a simple program called cowsay) but hopefully you will understand the concept enough to do further research when needed. The first thing to note is that we will need to run the command as root (so most likely with sudo). So, we shall run 
+
+sudo apt install cowsay 
+
+in order to install it. After a short while, it should be ready for use. Now try using the 
+
+man cowsay 
+
+command to figure out what it does and how to use all it’s features.  
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux11.png"></div>
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/linux12.png"></div>
+
+And that concludes the article! I hope you learnt something and had as much fun as I had writing this! 
