@@ -1,0 +1,62 @@
+---
+layout: post
+title: "Windows for advanced users"
+---
+
+Chance is, if you’re reading this article, that you’ve used the Windows operating system at least a little bit in your life. This article is not going to cover day-to-day Windows but instead we will look at some more advanced concepts that you may not have encountered. But first, what is Windows? 
+
+Windows is a GUI (graphical user interface) based operating system, developed by Microsoft. The first version of it was released in 1985. It has developed over the years, gaining the famous Internet Explorer web browser in 1995 and various other recognisable apps over the years. The version of Windows most people will be familiar with, as it’s the latest, is Windows 10 (released in 2015). It came with the new additions of Cortana (many people have mixed feelings about her) and Microsoft Edge (a modern replacement for Internet Explorer). According to Microsoft – this is the “final” Windows version, so whilst it will receive updates, no major overhauls are planned. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/win10.png"></div>
+
+First things first, let's explore the command prompt. It’s similar to the Linux command line in the sense we can run commands to interact with the computer at a lower level, but the overall feel and style of some commands is a bit different to Linux. To open the command prompt, type “cmd” into the Windows search bar on the taskbar and click on Command Prompt when it appears. You can also right-click to Run as Administrator if you need more permissions, but this isn’t necessary for now. You should be greeted with a view like the image below. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/cmd.png"></div>
+
+We aren’t going to cover any file system related commands here, as this is mostly done through the easy File Explorer. Instead, we will look at some common troubleshooting commands. Firstly, let’s look at at the “systeminfo” commands. Running this (like in the image below) will show us lots of info about the computer we are working on. The screenshot below shows the lines mostly focusing on the OS version, but below that we can also see information about the computer’s hardware and some other details such as the timezone. This can be useful as a source of information. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/systeminfo.png"></div>
+
+Running the “ipconfig” (ifconfig on Linux) command will list details about every network adapter detected. See below for an example output for an Ethernet adapter. This may be useful when troubleshooting network issues.  
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/ipconfig.png"></div>
+
+Finally, to wrap up our quick look at a few commands, we shall investigate the ping command. Using the ping command allows us to check if an IP address or website is up (useful in troubleshooting). The command works by sending a series of test packets and checking to see if it gets an expected response. The image below shows me checking to see if google.com is up (spoiler: it is). The ping command accepts IP addresses and domain names. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/ping.png"></div>
+
+Now let’s have a brief talk about the Windows registry. The registry is simply a database of options on Windows that configures the operating system in a certain way. Firstly, in order to have a look, we will want to open registry editor (can be found by searching for it). Before we go any further, you should be aware that editing anything here could significantly impact how your computer works so do not edit anything unless you understand what it does. We will only be looking and not editing anything. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/hives.png"></div>
+
+In the image above, we see the 5 “hive” keys. These are the top 5 sections, and each is responsible for different things. To demonstrate the registry in action, we will look at the Run and RunOnce keys. There are 4 of them and can be found at the following locations: 
+
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run 
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run 
+
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce 
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce 
+
+These keys are responsible for defining what programs run when a user logs on. You may have several apps configured to do this. To investigate these keys in Registry Editor, expand each option until you reach what we are looking for. These 4 keys might not all show the same values but combined, they can provide some interesting information (especially in a forensics situation). 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/run.png"></div>
+
+These are just a few of many registry keys that exist. If you are curious about the function of a key, researching online may yield something interesting. 
+
+Our next stop on our whistle-stop tour of Windows is the Windows event logs. In order to look at these, we will search for Event Viewer in the Windows search bar and open it. Looking at the left-hand column, we are mostly interested in “Windows Logs” so go ahead and expand that category (click the little arrow next to it). The “Applications and Services Logs” provides info about specific programs and hardware, but Windows Logs show info about the OS. An event is generated in the relevant log when something meaningful happens, like someone logging on or a user tries to access something they shouldn’t be able to. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/event_logs.png"></div>
+
+Windows Logs (by default) contain 5 logs. We are going to focus a little more on the Security log. By clicking on this, we can see a series of security related events. Every event has an Event ID, which tells us exactly what the event is. A common event to see in the Windows security log is Event ID 4624 (An account was successfully logged on). This tells us a user has successfully logged on. In order to find one more easily, you may wish to click “Filter Current Log” in the right hand Action column of Event Viewer and where it says “All Event IDs”, replace this with the Event ID you want to see examples of. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/logon.png"></div>
+
+Click on any of these events and you should see further information about it, such as who logged in and how they logged in. This is useful for tracking who is using a computer but sometimes we may be more interested in who has failed to log in. For this, we want to see Event ID 4625 (An account failed to log on). To view these, we can filter the same way as before. These are just 2 of numerous Event IDs that exist, and some research online will easily dig up massive lists of these IDs. 
+
+<div style="text-align:center"><img src="https://ssafuze.github.io/EPQ-site/assets/logon_fail.png"></div>
+
+Windows is too vast to show off much more, but this should be enough to whet your appetite to explore further what Windows has to offer you. Before we wrap up, I just want to mention WSL. The Windows Subsystem for Linux allows you to run Linux on Windows (with some limitations). This might be very useful if you want to practice some Linux skills without having to install a new operating system. 
+
+So, this has been a quick overview of some of the features of Windows you might not have met before. There’s a whole host of other stuff out there for you to discover but hopefully you can come away from this with a better understanding. 
